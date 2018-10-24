@@ -1,0 +1,14 @@
+- name: Add Draios RHEL Repository
+  yum_repository:
+    name: draios
+    description: sysdig packages
+    baseurl: "http://download.draios.com/stable/rpm/$basearch"
+    gpgcheck: yes
+    gpgkey: https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public
+    file: draios
+
+
+- name: "Install sysdig package"
+  package:
+    name: sysdig
+    state: latest
